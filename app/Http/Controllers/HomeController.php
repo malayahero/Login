@@ -25,13 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->admin == true){
-            return redirect(route('adminDashboard'));
-        }elseif(Auth::user()->moderator == true){
-            return redirect(route('modDashboard'));
-        }else{
-            return redirect(route('userDashboard'));
-        }
+        @if(Auth::user()->author == true)
+              echo 'this author role';
+            @endif
+                @if(Auth::user()->admin == true)
+              echo 'this admin role';
+            @endif
+                @if(Auth::user()->user == true)
+              echo 'this user role';
+            @endif
         return view('home');
     }
 }
