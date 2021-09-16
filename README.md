@@ -5,8 +5,8 @@ This is for User Role what user permission do you need to add some privileges to
 
 #On Create Table
 
-   public function up()
-    {
+public function up()
+   {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
